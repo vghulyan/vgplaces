@@ -4,6 +4,7 @@ import {Platform, StyleSheet, View } from 'react-native';
 import PlaceInput from './src/components/PlaceInput/PlaceInput';
 import PlaceList from './src/components/PlaceList/PlaceList';
 //import placeImage from './src/assets/Matenadaran.jpg';
+import PlaceDetail from './src/components/PlaceDetail/PlaceDetail';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -16,7 +17,8 @@ type Props = {};
 export default class App extends Component<Props> {
 
   state = {
-    places: []
+    places: [],
+    selectedPlace: null
   };
 
   placeAddedHandler = placeName => {
@@ -34,23 +36,44 @@ export default class App extends Component<Props> {
     })
   };
 
-  placeDeletedHandler = key => {
+  placeDeleteHandler = () => {
     this.setState(prevState => {
       return {
         places: prevState.places.filter(place => {
-          return place.key !== key;
+          return place.key !== prevState.selectedPlace.key;
+        }),
+        selectedPlace: null
+      }
+    })
+  };
+
+  modalCloseHandler = () => {
+    this.setState({ selectedPlace: null})
+  };
+
+  placeSelectHandler = key => {
+    this.setState(prevState => {
+      return {
+        selectedPlace: prevState.places.find(place => {
+          return place.key === key;
         })
       }
     })
   };
 
-
   render() {
 
     return (
       <View style={styles.container}>
+        <PlaceDetail
+            selectedPlace={this.state.selectedPlace}
+            onItemDeleted={this.placeDeleteHandler}
+            onModalClosed={this.modalCloseHandler}
+        />
         <PlaceInput onPlaceAdded={this.placeAddedHandler} />
-        <PlaceList places={this.state.places} onItemDeleted={this.placeDeletedHandler} />
+        <PlaceList
+            places={this.state.places}
+            onItemSelected={this.placeSelectHandler} />
       </View>
     );
   }
