@@ -25,7 +25,7 @@ export default class App extends Component<Props> {
     this.setState(prevState => {
       return {
         places: prevState.places.concat({
-          key: Math.random(),
+          key: Math.random().toString(),
           name: placeName,
           //image: placeImage
           image: {
