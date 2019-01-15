@@ -4,7 +4,7 @@ import { View, TextInput, Button, StyleSheet } from "react-native";
 class PlaceInput extends Component {
 
     state = {
-        placeName: 'Abovyan'
+        placeName: 'Yerevan'
     };
 
     placeNameChangeHandler = (val) => {
