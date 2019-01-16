@@ -58,4 +58,28 @@ Install React Native Debugger
         };
     
         
+Install react native vector icons
+
+    npm install react-native-vector-icons --save
     
+iOS - XCode
+
+    Right Click on Libraries, Add Files to <project>, navigate to node_modules/react-native-vetor-icons/ select RNVectorIcons.xcodeproj
+    On the main screen, click on the project name, click Build Phases, Link Binary With Libraries, click on + search vector or icon and select libRNVectorIcons.a
+    Copy Fonts folder to the project by going node_modules/react-native-vector-icons/Fonts/ select Ionicons.ttf drag and drop into the project, a popup appears, select <project> from Add to gargets: and select Create folder references
+    edit info.plist: Right click on Information Property List, Add Row, type: Fonts provided by application, add filename as: Ionicons.ttf
+                 
+Android:
+
+    Continue to the Android section: Copy two lines:   
+        include ':react-native-vector-icons'
+        project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+    Paste in android/settings.gradle
+    A few lines below you'll find the following line under dependencies: compile project(':react-native-vector-icons') copy to android/app/build.gradle inside dependencies
+    Copy: import com.oblador.vectoricons.VectorIconsPackage; into android/app/src/java/com/<project?/MainApplication.java, add new VectorIconsPackage() in protected List<ReactPackage> getPackages() {
+    To copy fonts: copy: 
+    project.ext.vectoricons = [
+        iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf' ] // Name of the font files you want to copy
+    ]
+    apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"  to: android/app/build.gradle at the bottom 
+        
