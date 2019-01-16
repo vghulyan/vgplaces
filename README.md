@@ -66,7 +66,7 @@ iOS - XCode
 
     Right Click on Libraries, Add Files to <project>, navigate to node_modules/react-native-vetor-icons/ select RNVectorIcons.xcodeproj
     On the main screen, click on the project name, click Build Phases, Link Binary With Libraries, click on + search vector or icon and select libRNVectorIcons.a
-    Copy Fonts folder to the project by going node_modules/react-native-vector-icons/Fonts/ select Ionicons.ttf drag and drop into the project, a popup appears, select <project> from Add to gargets: and select Create folder references
+    Copy Fonts folder to the project by going node_modules/react-native-vector-icons/Fonts/ select Ionicons.ttf drag and drop into the project, a popup appears, select <project> from Add to gadgets: and select Create folder references
     edit info.plist: Right click on Information Property List, Add Row, type: Fonts provided by application, add filename as: Ionicons.ttf
                  
 Android:
@@ -83,3 +83,15 @@ Android:
     ]
     apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"  to: android/app/build.gradle at the bottom 
         
+React Navigation
+
+    iOS
+    
+        v1 docs: https://github.com/wix/react-native-navigation/tree/v1/docs
+        npm install --save react-native-navigation@1    
+        https://github.com/wix/react-native-navigation/blob/v1/docs/installation-ios.md    
+        AppDelegate.m -> https://github.com/wix/react-native-navigation/blob/v1/example/ios/example/AppDelegate.m
+        
+    Android
+    
+        https://github.com/wix/react-native-navigation/blob/v1/docs/installation-android.md    
