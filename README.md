@@ -1,3 +1,5 @@
+Resources: NativeBase.io, React Native Cross Platform Components 
+
 Create a new project using the following steps:
 
     Search react native
