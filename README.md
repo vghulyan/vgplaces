@@ -56,7 +56,7 @@ Install React Native Debugger
         const configureStore = () => {
           return createStore(rootReducer, composeEnhancers())
         };
-    
+    To Run the native debugger: Right click run with remote debugging...
         
 Install react native vector icons
 
@@ -94,4 +94,6 @@ React Navigation
         
     Android
     
-        https://github.com/wix/react-native-navigation/blob/v1/docs/installation-android.md    
+        https://github.com/wix/react-native-navigation/blob/v1/docs/installation-android.md
+        
+Styling: React Native Styling cheat sheet : https://github.com/vhpoet/react-native-styling-cheat-sheet
