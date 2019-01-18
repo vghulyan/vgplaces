@@ -36,6 +36,7 @@ class FindPlaceScreen extends Component {
             duration: 500,
             useNativeDriver: true
         }).start();
+        this.setState({placesLoaded:true})
     };
 
     itemSelectedHandler = key => {
@@ -52,6 +53,7 @@ class FindPlaceScreen extends Component {
     };
 
     render() {
+        debugger;
         let content = (
             <Animated.View style={{
                 opacity: this.state.removeAnim,

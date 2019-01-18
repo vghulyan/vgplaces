@@ -6,13 +6,16 @@ class placeList extends PureComponent {
 
     _keyExtractor = (item, index) => item.key;
 
-    _renderItem = (info) => (
-        <ListItem
-            id={info.item.key}
-            placeName={info.item.name}
-            placeImage={info.item.image}
-            onItemPressed={() => this.props.onItemSelected(info.item.key)} />
-    );
+    _renderItem = (info) => {
+        debugger;
+        return (
+            <ListItem
+                id={info.item.key}
+                placeName={info.item.name}
+                placeImage={info.item.image}
+                onItemPressed={() => this.props.onItemSelected(info.item.key)}/>
+        )
+    }
 
     render() {
         return(
