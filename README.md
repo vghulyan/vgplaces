@@ -100,3 +100,10 @@ React Navigation
         
 Styling: React Native Styling cheat sheet : https://github.com/vhpoet/react-native-styling-cheat-sheet
 
+Screenshots:
+
+![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/Login.png)
+![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/SharePlace.png)
+![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/FindPlaces.png)
+![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/FindPlace.png)
+![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/List.png)
