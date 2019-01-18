@@ -100,9 +100,15 @@ React Navigation
         
 Styling: React Native Styling cheat sheet : https://github.com/vhpoet/react-native-styling-cheat-sheet
 
+Input Validators:
+
+    Email reqex: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+    [a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?
+
 Screenshots:
 
 ![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/Login.png)
+![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/LoginInHorizontalView.png)
 ![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/SharePlace.png)
 ![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/FindPlaces.png)
 ![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/FindPlace.png)

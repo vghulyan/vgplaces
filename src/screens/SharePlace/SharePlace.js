@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button, ScrollView, Image, StyleSheet } from 'react-native';
+import { View, Button, ScrollView, KeyboardAvoidingView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 import { addPlace } from '../../store/actions/index';
@@ -48,27 +48,29 @@ class SharePlaceScreen extends Component {
 
     render() {
         return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <MainText>
-                        <HeadingText>Share a Place with us!</HeadingText>
-                    </MainText>
+            <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={50} style={{flex:1}}>
+                <ScrollView>
+                    <View style={styles.container}>
+                        <MainText>
+                            <HeadingText>Share a Place with us!</HeadingText>
+                        </MainText>
 
-                    <PickImage />
-                    <PickLocation />
-                    <PlaceInput
-                        placeName={this.state.placeName}
-                        onChangeText={this.placeNameChangeHandler}
-                    />
-
-                    <View  style={styles.button}>
-                        <Button
-                            title="Share the Place!"
-                            onPress={this.placeAddedHandler}
+                        <PickImage />
+                        <PickLocation />
+                        <PlaceInput
+                            placeName={this.state.placeName}
+                            onChangeText={this.placeNameChangeHandler}
                         />
+
+                        <View  style={styles.button}>
+                            <Button
+                                title="Share the Place!"
+                                onPress={this.placeAddedHandler}
+                            />
+                        </View>
                     </View>
-                </View>
-            </ScrollView>
+                </ScrollView>
+            </KeyboardAvoidingView>
         )
     }
 }

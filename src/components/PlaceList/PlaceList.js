@@ -7,7 +7,6 @@ class placeList extends PureComponent {
     _keyExtractor = (item, index) => item.key;
 
     _renderItem = (info) => {
-        debugger;
         return (
             <ListItem
                 id={info.item.key}
