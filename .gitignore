@@ -57,4 +57,3 @@ buck-out/
 package-lock.json
 
 .env
-*/AndroidManifest.xml
