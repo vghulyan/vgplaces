@@ -42,6 +42,7 @@
 		B642970821EF7D9C005E927D /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B642970521EF7D61005E927D /* libRNVectorIcons.a */; };
 		B642970C21EF7E6D005E927D /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B642970B21EF7E6D005E927D /* Ionicons.ttf */; };
 		B668381221ECBCD60064FBB0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B668381121ECBCD60064FBB0 /* MapKit.framework */; };
+		B6C71EA921F5E75C00E21771 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C71EA821F5E6EF00E21771 /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -339,6 +340,13 @@
 			remoteGlobalIDString = A39873CE1EA65EE60051E01A;
 			remoteInfo = "RNVectorIcons-tvOS";
 		};
+		B6C71EA721F5E6EF00E21771 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6C71EA321F5E6EF00E21771 /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -372,6 +380,7 @@
 		B64296FF21EF7D61005E927D /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		B642970B21EF7E6D005E927D /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		B668381121ECBCD60064FBB0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B6C71EA321F5E6EF00E21771 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +396,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6C71EA921F5E75C00E21771 /* libAirMaps.a in Frameworks */,
 				B642970821EF7D9C005E927D /* libRNVectorIcons.a in Frameworks */,
 				B64296FE21EF7510005E927D /* libReactNativeNavigation.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -577,6 +587,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B6C71EA321F5E6EF00E21771 /* AirMaps.xcodeproj */,
 				B64296FF21EF7D61005E927D /* RNVectorIcons.xcodeproj */,
 				B64296D321EF74D2005E927D /* ReactNativeNavigation.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -652,6 +663,14 @@
 			children = (
 				B642970521EF7D61005E927D /* libRNVectorIcons.a */,
 				B642970721EF7D61005E927D /* libRNVectorIcons-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B6C71EA421F5E6EF00E21771 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B6C71EA821F5E6EF00E21771 /* libAirMaps.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -776,6 +795,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = B6C71EA421F5E6EF00E21771 /* Products */;
+					ProjectRef = B6C71EA321F5E6EF00E21771 /* AirMaps.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -1122,6 +1145,13 @@
 			fileType = archive.ar;
 			path = "libRNVectorIcons-tvOS.a";
 			remoteRef = B642970621EF7D61005E927D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B6C71EA821F5E6EF00E21771 /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = B6C71EA721F5E6EF00E21771 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

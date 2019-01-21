@@ -105,6 +105,56 @@ Input Validators:
     Email reqex: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
     [a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?
 
+React Native maps
+
+    https://github.com/react-native-community/react-native-maps
+    
+Installation
+
+iOS
+    
+    Add xcodeproj to xcode project's library
+    node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj
+    in xcode: click on project name/Build Phazes, Link Binary With Libraries, + (search map) -> libAirMaps.a
+    in xcode: under Libraries click AirMaps.xcodeproj / Build Settings/ in search field type: "header search paths", double click on the right screen path a popup comes showin two $(SCRCROOT)/../../react-native/React and Libraires/Image
+    
+Android
+
+    1. android/app/build.gradle -> under dependencies add: 
+        implementation(project(':react-native-maps')){
+               exclude group: 'com.google.android.gms', module: 'play-services-base'
+               exclude group: 'com.google.android.gms', module: 'play-services-maps'
+           }
+           implementation 'com.google.android.gms:play-services-base:10.0.1'
+           implementation 'com.google.android.gms:play-services-maps:10.0.1'
+    2. android/settings.gralde add:
+        include ':react-native-maps'
+        project(':react-native-maps').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-maps/lib/android')
+
+    3. Get Google maps api key: https://console.cloud.google.com/google/maps-apis (awesome_project)
+    4. Edit: android/app/src/main/AndroidManifest.xml
+        add: <application>
+                <!-- You will only need to add this meta-data tag, but make sure it's a child of application -->
+                <meta-data
+                  android:name="com.google.android.geo.API_KEY"
+                  android:value="Your Google maps API Key Here"/>
+             </application>
+     5. Edit: android/app/src/main/java/com/vgplaces/MainApplication.java,
+        import com.airbnb.android.react.maps.MapsPackage ; and new MapsPackage() in your MainApplication.java
+        i.e.
+        @Override
+            protected List<ReactPackage> getPackages() {
+                return Arrays.<ReactPackage>asList(
+                        new VectorIconsPackage(),
+                        new MapsPackage()
+                );
+            }
+      6. 
+        i. Android Studio: Tools>SDK Manager, SDK Tools (tab), select Google Play Services and install it.
+        ii. Android Studio: Tools>AVD Manager, (this can cause google maps not working: Add Pixel API 27).
+                Create a new Virtual Device: Pixel, Oreo (version 26)
+      
+    
 Screenshots:
 
 ![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/Login.png)

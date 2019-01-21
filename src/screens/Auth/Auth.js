@@ -125,6 +125,7 @@ class AuthScreen extends Component {
         let headingText = null;
         let confirmPasswordControl = null;
         if(this.state.viewMode === "portrait") {
+            debugger;
             headingText = (
                 <MainText>
                     <HeadingText>Please Log In</HeadingText>
