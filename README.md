@@ -1,5 +1,7 @@
 Resources: NativeBase.io, React Native Cross Platform Components 
 
+For Android Best run on: Pixel API 27 Oreo
+
 Create a new project using the following steps:
 
     Search react native
@@ -113,10 +115,11 @@ Installation
 
 iOS
     
-    Add xcodeproj to xcode project's library
-    node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj
-    in xcode: click on project name/Build Phazes, Link Binary With Libraries, + (search map) -> libAirMaps.a
-    in xcode: under Libraries click AirMaps.xcodeproj / Build Settings/ in search field type: "header search paths", double click on the right screen path a popup comes showin two $(SCRCROOT)/../../react-native/React and Libraires/Image
+    1. Add xcodeproj to xcode project's library
+    2. node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj
+    3. in xcode: click on project name/Build Phazes, Link Binary With Libraries, + (search map) -> libAirMaps.a
+    4. in xcode: under Libraries click AirMaps.xcodeproj / Build Settings/ in search field type: "header search paths", double click on the right screen path a popup comes showin two $(SCRCROOT)/../../react-native/React and Libraires/Image
+    5. Info.plist > Right click on Information Property List and add: Privacy - Location Usage Desription: Let's share a place
     
 Android
 
@@ -153,7 +156,56 @@ Android
         i. Android Studio: Tools>SDK Manager, SDK Tools (tab), select Google Play Services and install it.
         ii. Android Studio: Tools>AVD Manager, (this can cause google maps not working: Add Pixel API 27).
                 Create a new Virtual Device: Pixel, Oreo (version 26)
-      
+      7. Add <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> to AndroidManifest.xml
+    
+React Native Image Picker
+
+        https://github.com/react-native-community/react-native-image-picker
+  
+        Install ios
+        
+            1. Add node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj to library the
+            2. Add libRNImagePicker.a under Build Phases>Link Binary With Libraries
+            3. Two permissions need to be granted: NSPhotoLibraryUsageDescription and NSCameraUsageDescription     
+                Info.plist: Right click and add row: NSPhotoLibraryUsageDescription:You want to share an image, right?
+                Info.plist: Right click and add row: NSCameraUsageDescription: Let's take a photo!
+    
+        Install android
+        
+            1. Add the follwing lines to: android/settings.gradle:
+                include ':react-native-image-picker'
+                project(':react-native-image-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-picker/android')
+            2. Update the android build tools version to 2.2+ in android/build.gradle
+                buildscript {
+                    ...
+                    dependencies {
+                        classpath 'com.android.tools.build:gradle:2.2.+' // <- USE 2.2.+ version
+                    }
+                    ...
+                }
+            3. Update the gradle version to 2.14.1 in android/gradle/wrapper/gradle-wrapper.properties  
+                distributionUrl=https\://services.gradle.org/distributions/gradle-2.14.1-all.zip      
+            4. Add the compile line to the dependencies in android/app/build.gradle:
+                  dependencies {
+                      compile project(':react-native-image-picker')
+                  }
+             5. Add the import and link the package in MainApplication.java:               
+                import com.imagepicker.ImagePickerPackage; // <-- add this import                
+                public class MainApplication extends Application implements ReactApplication {
+                    @Override
+                    protected List<ReactPackage> getPackages() {
+                        return Arrays.<ReactPackage>asList(
+                            new MainReactPackage(),
+                            new ImagePickerPackage(), // <-- add this line
+                            // OR if you want to customize dialog style
+                            new ImagePickerPackage(R.style.my_dialog_style)
+                        );
+                    }
+                } 
+             6. (MAY BE?) add AndroidManifest.xml
+                    <uses-permission android:name="android.permission.CAMERA"/>
+                    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+           
     
 Screenshots:
 

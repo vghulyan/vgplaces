@@ -60,11 +60,11 @@ class AuthScreen extends Component {
     }
 
     switchAuthModehandler = () => {
-      this.setState(prevState => {
-          return {
-              authMode: prevState.authMode === "login" ? "signup" : "login"
-          }
-      })
+        this.setState(prevState => {
+            return {
+                authMode: prevState.authMode === "login" ? "signup" : "login"
+            }
+        })
     };
 
     loginHandler = () => {
@@ -125,7 +125,6 @@ class AuthScreen extends Component {
         let headingText = null;
         let confirmPasswordControl = null;
         if(this.state.viewMode === "portrait") {
-            debugger;
             headingText = (
                 <MainText>
                     <HeadingText>Please Log In</HeadingText>
@@ -169,9 +168,9 @@ class AuthScreen extends Component {
                             />
                             <View style={
                                 this.state.viewMode === "portrait" || this.state.authMode === "login"
-                                ? styles.portraitPasswordContainer
+                                    ? styles.portraitPasswordContainer
                                     : styles.landscapePasswordContainer
-                                }
+                            }
                             >
                                 <View style={this.state.viewMode === "portrait" || this.state.authMode === "login"
                                     ? styles.portraitPasswordWrapper
@@ -198,7 +197,7 @@ class AuthScreen extends Component {
                             !this.state.controls.confirmPassword.valid && this.state.authMode === "signup" ||
                             !this.state.controls.email.valid ||
                             !this.state.controls.password.valid
-                            }
+                        }
                     >
                         Submit
                     </ButtonWithBackground>
