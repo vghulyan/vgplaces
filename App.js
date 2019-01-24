@@ -21,10 +21,11 @@ Navigation.registerComponent("awesome-places.FindPlaceScreen",
 Navigation.registerComponent("awesome-places.PlaceDetailScreen",
     () => PlaceDetailScreen, store, Provider);
 Navigation.registerComponent("awesome-places.SideDrawer",
-    () => SideDrawerScreen);
+    () => SideDrawerScreen, store, Provider);
 
 
 // Start an App
+//export default () => Navigation.startSingleScreenApp({
 Navigation.startSingleScreenApp({
   screen: {
     screen: "awesome-places.AuthScreen",

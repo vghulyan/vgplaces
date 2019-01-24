@@ -14,7 +14,7 @@ class placeList extends PureComponent {
                 placeImage={info.item.image}
                 onItemPressed={() => this.props.onItemSelected(info.item.key)}/>
         )
-    }
+    };
 
     render() {
         return(

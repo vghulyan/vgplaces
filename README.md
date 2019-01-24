@@ -206,7 +206,44 @@ React Native Image Picker
                     <uses-permission android:name="android.permission.CAMERA"/>
                     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
            
+ Firebase
+ 
+    firebase.google.com
     
+        1. Add <project> which has been created already.
+        2. From Firebase console go to: Database->Realtime Database:
+            https://awesome-places-1548072692279.firebaseio.com/
+        3. Store images in firebase.google.com -> (...)Functions (Cloud Functins)
+            Install: sudo npm install -g firebase-tools
+        4. Inside root of the project type: $> firebase init (make sure you login: firebase login)
+            i. Upon running firebase init: brings options: select Functions: Configure and deploy Cloud Functions (hit space)
+            ii. Select project <projectname>
+            iii. Install dependencies : Y
+            iv. cd functions and install:
+                google-cloud/storage: npm install --save @google-cloud/storage ("@google-cloud/storage": "^1.4.0" works fine)
+                cors: npm install --save cors
+            After finishing installation: firbase creates two files, .firebaserc and firebase.json and functions directory:
+            In functions directory write your server calls in index.js
+        5. Generate a private key for functions: from firebase.google.com: on the top left click on star: Project Settings> Service accounts, 
+                select Node option and click on Generate new private key, save under /functions/ folder name it awesome-places.json
+        6. inside functions/index.js to create a bucket: fireboase.google.com/Storage and copy the url without gs: awesome-places-1548072692279.appspot.com
+        7. FIREBASE DEPLOY>>> cd .. (to root) and type: 
+            firebase deploy (deploy firebase project). upon sucessfull deploy you'll be given a url : Function URL: URL, copy the URL and use it to send the request to to trigger the function, add the url in store/actions/places.js fetch(url, post) to store the image             
+  
+Firebaes auth tokens:
+
+    Firebase auth rest : https://firebase.google.com/docs/reference/rest/auth/
+    1. Go to console.firebase.google.com and click on Authentication: Set up sign-in method
+    2. Email/Password: status Enabled
+    Signup with email and password: https://firebase.google.com/docs/reference/rest/auth/#section-create-email-password
+        https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=[API_KEY]
+        The [API_KEY] can be found in: Firebase console/Authentication -> Web setup
+    Authentiate REST Requests: https://firebase.google.com/docs/database/rest/auth    
+        "https://<DATABASE_NAME>.firebaseio.com/users/ada/name.json?auth=<ID_TOKEN>"
+    AsyncStorage: stores the token    
+    Realtime Database Triggers - to delete images 
+        
+        
 Screenshots:
 
 ![alt text](https://github.com/vghulyan/vgplaces/blob/master/src/assets/screenshots/Login.png)
